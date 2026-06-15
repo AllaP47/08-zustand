@@ -1,0 +1,17 @@
+/* app/notes/filter/LayoutNotes.module.css */
+.container {
+  display: flex;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.sidebar {
+  width: 250px;
+  flex-shrink: 0;
+}
+
+.notesWrapper {
+  flex-grow: 1;
+}

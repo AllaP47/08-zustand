@@ -1,9 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-
 import cssStyles from './Home.module.css';
-
 
 const css = (cssStyles || {}) as Record<string, string>;
 
@@ -24,10 +22,10 @@ export default function HomePage() {
           and productivity.
         </p>
         
-      
         <div style={{ marginTop: '24px', textAlign: 'center' }}>
+          {/* ВИПРАВЛЕНО: Змінено href з /notes на /notes/filter/all */}
           <Link 
-            href="/notes" 
+            href="/notes/filter/all" 
             style={{ 
               display: 'inline-block', 
               padding: '12px 24px', 
