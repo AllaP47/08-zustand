@@ -3,18 +3,18 @@
 import React, { useState,  } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useDebouncedCallback } from 'use-debounce'; 
-import { fetchNotes } from '@/lib/api';
-import { NoteList } from '@/components/NoteList/NoteList';
-import { SearchBox } from '@/components/SearchBox/SearchBox';
-import { Pagination } from '@/components/Pagination/Pagination';
-import { Modal } from '@/components/Modal/Modal';
-import { NoteForm } from '@/components/NoteForm/NoteForm'; 
-import type { FetchNotesResponse } from '@/lib/api';
+import { fetchNotes } from '../../../../lib/api';
+import { NoteList } from '../../../../components/NoteList/NoteList';
+import { SearchBox } from '../../../../components/SearchBox/SearchBox';
+import { Pagination } from '../../../../components/Pagination/Pagination';
+import { Modal } from '../../../../components/Modal/Modal';
+import { NoteForm } from '../../../../components/NoteForm/NoteForm'; 
+import type { FetchNotesResponse } from '../../../../lib/api';
 
 import cssStyles from './notes.module.css';
 const css = (cssStyles || {}) as Record<string, string>;
 
-// ВИПРАВЛЕНО: Додано інтерфейс для пропсів із необов'язковим параметром tag
+
 interface NotesClientProps {
   tag?: string;
 }
@@ -27,7 +27,7 @@ export default function NotesClient({ tag }: NotesClientProps) {
 
  
 
-  // ВИПРАВЛЕНО: Додано tag у queryKey та у виклик fetchNotes
+
   const { data, isLoading } = useQuery({
     queryKey: ['notes', { page, search, tag }],
     queryFn: () => fetchNotes({ page, perPage, search, tag }),

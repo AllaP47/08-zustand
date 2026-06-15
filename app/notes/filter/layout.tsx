@@ -1,6 +1,6 @@
 // app/notes/filter/layout.tsx
 import React from 'react';
-import css from './LayoutNotes.module.css'; // Ваш файл стилів із попереднього ДЗ
+import css from './LayoutNotes.module.css'; 
 
 interface FilterLayoutProps {
   children: React.ReactNode;

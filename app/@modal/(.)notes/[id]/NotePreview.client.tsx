@@ -4,8 +4,8 @@
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
-import { fetchNoteById } from '@/lib/api';
-import { Modal } from '@/components/Modal/Modal';
+import { fetchNoteById } from '../../../../lib/api';
+import { Modal } from '../../../../components/Modal/Modal';
 
 import css from './NoteDetails.module.css';
 
@@ -19,11 +19,11 @@ export default function NotePreviewClient({ id }: NotePreviewClientProps) {
   const { data: note, isLoading, isError } = useQuery({
     queryKey: ['note', id],
     queryFn: () => fetchNoteById(id),
-    // ПУНКТ 1 ВИПРАВЛЕНО: Явним чином встановлюємо refetchOnMount у false
+   
     refetchOnMount: false,
   });
 
-  // ПУНКТ 2 ВИПРАВЛЕНО: Використовуємо router.back() для повернення на попередню сторінку фільтрації
+
   const handleClose = () => {
     router.back();
   };
@@ -32,21 +32,21 @@ export default function NotePreviewClient({ id }: NotePreviewClientProps) {
     <Modal isOpen={true} onClose={handleClose}>
       <div className={css.container || ''} style={{ minHeight: '150px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
         
-        {/* ПУНКТ 4 ВИПРАВЛЕНО: Замість повернення null додано гарний індикатор завантаження */}
+      
         {isLoading && (
           <p style={{ textAlign: 'center', color: '#666', fontWeight: '500' }}>
             Loading note details...
           </p>
         )}
 
-        {/* ПУНКТ 3 ВИПРАВЛЕНО: Додано обробку та відображення повідомлення про помилку */}
+    
         {isError && (
           <p style={{ textAlign: 'center', color: '#dc3545', fontWeight: '500' }}>
             Failed to load note details. Please try again.
           </p>
         )}
 
-        {/* Основний вміст картки відображається тільки тоді, коли дані успішно завантажені */}
+      
         {!isLoading && !isError && note && (
           <>
             <h2 className={css.title || ''}>{note.title}</h2>

@@ -23,7 +23,7 @@ export default function HomePage() {
         </p>
         
         <div style={{ marginTop: '24px', textAlign: 'center' }}>
-          {/* ВИПРАВЛЕНО: Змінено href з /notes на /notes/filter/all */}
+       
           <Link 
             href="/notes/filter/all" 
             style={{ 
