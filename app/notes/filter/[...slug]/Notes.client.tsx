@@ -12,7 +12,7 @@ import { Modal } from '@/components/Modal/Modal';
 import { NoteForm } from '@/components/NoteForm/NoteForm'; 
 import type { FetchNotesResponse } from '@/lib/api';
 
-import cssStyles from './notes.module.css';
+import cssStyles from '@/app/notes/notes.module.css'
 const css = (cssStyles || {}) as Record<string, string>;
 
 interface NotesClientProps {
