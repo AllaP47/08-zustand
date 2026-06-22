@@ -35,3 +35,7 @@ export const createNote = async (newNote: CreateNoteInput): Promise<Note> => {
   const response = await axios.post<Note>('/api/notes', newNote);
   return response.data;
 };
+
+export const deleteNote = async (id: string): Promise<void> => {
+  await axios.delete(`/api/notes/${id}`);
+};

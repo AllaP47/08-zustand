@@ -1,9 +1,13 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { deleteNote } from '../../../lib/api';
+import { deleteNote } from '../../../lib/api/notes'; 
 import type { Note } from '../../../types/note';
-import css from './NoteList.module.css';
+
+import cssStyles from './NoteList.module.css';
+const css = (cssStyles || {}) as Record<string, string>;
 
 interface NoteListProps {
   notes: Note[];
@@ -38,7 +42,7 @@ export const NoteList: React.FC<NoteListProps> = ({ notes }) => {
                 onClick={() => deleteMutation.mutate(id)}
                 disabled={deleteMutation.isPending}
               >
-                Delete
+                {deleteMutation.isPending ? '...' : 'Delete'}
               </button>
             </div>
           </div>
