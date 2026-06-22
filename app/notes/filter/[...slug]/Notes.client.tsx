@@ -11,7 +11,7 @@ import { SearchBox } from '../../../../app/components/SearchBox/SearchBox';
 import { Pagination } from '../../../../app/components/Pagination/Pagination';
 import type { FetchNotesResponse } from '../../../../types/note';
 
-import cssStyles from './notes.module.css';
+import cssStyles from './Notes.module.css';
 const css = (cssStyles || {}) as Record<string, string>;
 
 interface NotesClientProps {
