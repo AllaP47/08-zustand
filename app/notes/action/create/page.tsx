@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { NoteForm } from '../../../../app/components/NoteForm/NoteForm'; // Змінено на прямий відносний шлях
-import css from './CreateNote.module.css';
+import css from './createnote.module.css';
 
 export const metadata: Metadata = {
   title: 'Create note | NoteHub',
