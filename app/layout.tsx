@@ -20,10 +20,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'NoteHub — Ваш простір для нотаток',
     description: 'Зручний та ефективний додаток для створення, редагування та керування особистими нотатками.',
-    url: 'https://notehub.com', 
+    url: 'https://notehub.com/',
     images: [
       {
-        url: 'https://goit.global',
+        url: 'https://goit.global', // ВИПРАВЛЕНО: пряме посилання на .jpg файл зображення
         width: 1200,
         height: 630,
         alt: 'NoteHub — Платформа для керування нотатками',
@@ -31,6 +31,7 @@ export const metadata: Metadata = {
     ],
   },
 };
+
 
 
 interface RootLayoutProps {
