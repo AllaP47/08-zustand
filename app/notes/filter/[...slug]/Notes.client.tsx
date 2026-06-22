@@ -1,18 +1,17 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { useQuery } from '@tanstack/react-query';
 import { useDebouncedCallback } from 'use-debounce'; 
 
-import { fetchNotes } from '@/lib/api';
-import { NoteList } from '@/app/components/NoteList/NoteList';
-import { SearchBox } from '@/app/components/SearchBox/SearchBox';
-import { Pagination } from '@/app/components/Pagination/Pagination';
-import { Modal } from '@/app/components/Modal/Modal';
-import { NoteForm } from '@/app/components/NoteForm/NoteForm'; 
-import type { FetchNotesResponse } from '@/lib/api';
+import { fetchNotes } from '../../../../lib/api/notes';
+import { NoteList } from '../../../../app/components/NoteList/NoteList';
+import { SearchBox } from '../../../../app/components/SearchBox/SearchBox';
+import { Pagination } from '../../../../app/components/Pagination/Pagination';
+import type { FetchNotesResponse } from '../../../../types/note';
 
-import cssStyles from '@/app/notes/notes.module.css'
+import cssStyles from './notes.module.css';
 const css = (cssStyles || {}) as Record<string, string>;
 
 interface NotesClientProps {
@@ -22,7 +21,6 @@ interface NotesClientProps {
 export default function NotesClient({ tag }: NotesClientProps) {
   const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const perPage = 12;
 
   const { data, isLoading } = useQuery({
@@ -44,9 +42,9 @@ export default function NotesClient({ tag }: NotesClientProps) {
         {data && data.totalPages > 1 && (
           <Pagination currentPage={page} totalPages={data.totalPages} onPageChange={setPage} />
         )}
-        <button className={css.button} onClick={() => setIsModalOpen(true)}>
+        <Link href="/notes/action/create" className={css.button}>
           Create note +
-        </button>
+        </Link>
       </header>
 
       <main style={{ minHeight: '300px', position: 'relative' }}>
@@ -56,15 +54,8 @@ export default function NotesClient({ tag }: NotesClientProps) {
           <p style={{ textAlign: 'center', marginTop: '40px', color: '#666' }}>No notes found.</p>
         )}
       </main>
-
-      {isModalOpen && (
-        <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-          <NoteForm onClose={() => setIsModalOpen(false)} />
-        </Modal>
-      )}
     </div>
   );
 }
-
 
 

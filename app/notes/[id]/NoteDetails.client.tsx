@@ -3,12 +3,10 @@
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'next/navigation';
-import { fetchNoteById } from '../../../lib/api';
+import { fetchNoteById } from '../../../lib/api/notes';
 
-// 1. Імпортуємо файл строго за маленькою назвою details.module.css
 import cssStyles from './details.module.css';
 
-// 2. Рядок 12: Чиста типізація об'єкта css без зауважень для лінтера
 const css = (cssStyles || {}) as Record<string, string>;
 
 export default function NoteDetailsClient() {
@@ -18,7 +16,7 @@ export default function NoteDetailsClient() {
     queryKey: ['note', id],
     queryFn: () => fetchNoteById(id as string),
     enabled: !!id,
-    refetchOnMount: false, // Обов'язкова опція за вимогами ТЗ
+    refetchOnMount: false,
   });
 
   if (isLoading) {
@@ -29,6 +27,11 @@ export default function NoteDetailsClient() {
     return <p style={{ padding: '20px', textAlign: 'center', color: '#dc3545' }}>Something went wrong.</p>;
   }
 
+  // БЕЗПЕЧНО: Обробляємо дату, захищаючи TypeScript від undefined значень
+  const formattedDate = note.createdAt 
+    ? new Date(note.createdAt).toLocaleDateString() 
+    : 'No date available';
+
   return (
     <div className={css.container || ''}>
       <div className={css.item || ''}>
@@ -38,11 +41,12 @@ export default function NoteDetailsClient() {
         <p className={css.tag || ''}>{note.tag}</p>
         <p className={css.content || ''}>{note.content}</p>
         <p className={css.date || ''}>
-          Created date: {new Date(note.createdAt).toLocaleDateString()}
+          Created date: {formattedDate}
         </p>
       </div>
     </div>
   );
 }
+
 
 

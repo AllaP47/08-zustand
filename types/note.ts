@@ -1,10 +1,15 @@
-export type NoteTagType = 'Todo' | 'Work' | 'Personal' | 'Meeting' | 'Shopping';
+export type NoteTagType = 'Todo' | 'Work' | 'Personal' | 'Meeting' | 'Shopping' | 'Ideas';
 
 export interface Note {
   id: string;
   title: string;
-  content: string; // Нова назва поля
-  tag: NoteTagType; // Один рядок
-  createdAt: string;
-  updatedAt: string;
+  content: string; // або body, залежно від вашого API
+  tag: NoteTagType;
+  createdAt?: string;
+}
+
+export interface FetchNotesResponse {
+  notes: Note[];
+  totalPages: number;
+  currentPage: number;
 }
