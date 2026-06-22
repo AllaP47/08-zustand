@@ -3,10 +3,13 @@
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
-import { fetchNoteById } from '@/lib/api';
+
+import { fetchNoteById } from '../../../../lib/api/notes';
 import { Modal } from '@/app/components/Modal/Modal';
 
-import css from '@/app/notes/[id]/details.module.css';
+import cssStyles from '@/app/notes/[id]/details.module.css';
+const css = (cssStyles || {}) as Record<string, string>;
+
 
 interface NotePreviewClientProps {
   id: string;

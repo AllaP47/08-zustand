@@ -1,8 +1,9 @@
-// app/@modal/(.)notes/[id]/page.tsx
 import React from 'react';
 import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query';
-import { fetchNoteById } from '@/lib/api'; // Перевірте, чи працює цей аліас, або замініть на відносний шлях '../../../../lib/api'
-import NotePreviewClient from './NotePreview.client'; // рядок 5 (імпорт)
+
+import { fetchNoteById } from '../../../../lib/api/notes'; 
+import NotePreviewClient from './NotePreview.client';
+
 
 interface ParamProps {
   params: Promise<{
