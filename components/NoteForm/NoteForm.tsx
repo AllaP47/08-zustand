@@ -3,9 +3,9 @@
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { createNote } from '../../../lib/api/notes';
-import { useNoteStore, type NoteStore } from '../../../lib/store/noteStore';
-import type { NoteTagType } from '../../../types/note';
+import { createNote } from '../../lib/api/notes';
+import { useNoteStore, type NoteStore } from '../../lib/store/noteStore';
+import type { NoteTagType } from '../../types/note';
 
 import cssStyles from './NoteForm.module.css';
 const css = (cssStyles || {}) as Record<string, string>;

@@ -6,9 +6,9 @@ import { useQuery } from '@tanstack/react-query';
 import { useDebouncedCallback } from 'use-debounce'; 
 
 import { fetchNotes } from '../../../../lib/api/notes';
-import { NoteList } from '../../../../app/components/NoteList/NoteList';
-import { SearchBox } from '../../../../app/components/SearchBox/SearchBox';
-import { Pagination } from '../../../../app/components/Pagination/Pagination';
+import { NoteList } from '../../../../components/NoteList/NoteList';
+import { SearchBox } from '../../../../components/SearchBox/SearchBox';
+import { Pagination } from '../../../../components/Pagination/Pagination';
 import type { FetchNotesResponse } from '../../../../types/note';
 
 import cssStyles from '../../notes.module.css';

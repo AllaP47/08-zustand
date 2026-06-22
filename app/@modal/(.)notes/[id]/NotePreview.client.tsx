@@ -5,7 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 
 import { fetchNoteById } from '../../../../lib/api/notes';
-import { Modal } from '@/app/components/Modal/Modal';
+import { Modal } from '@/components/Modal/Modal';
 
 import cssStyles from '@/app/notes/[id]/details.module.css';
 const css = (cssStyles || {}) as Record<string, string>;
