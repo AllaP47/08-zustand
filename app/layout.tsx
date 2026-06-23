@@ -5,7 +5,6 @@ import { Header } from '../components/Header/Header';
 import { Footer } from '../components/Footer/Footer';
 import './globals.css';
 
-
 const roboto = Roboto({
   weight: ['400', '500', '700'],
   subsets: ['latin', 'cyrillic'],
@@ -15,24 +14,24 @@ const roboto = Roboto({
 
 
 export const metadata: Metadata = {
-  title: 'NoteHub — Ваш простір для нотаток',
-  description: 'Зручний та ефективний додаток для створення, редагування та керування особистими нотатками.',
+  title: 'Створення нотатки | NoteHub',
+  description: 'Створюйте та редагуйте свої нотатки швидко та зручно.',
   openGraph: {
-    title: 'NoteHub — Ваш простір для нотаток',
-    description: 'Зручний та ефективний додаток для створення, редагування та керування особистими нотатками.',
-    url: 'https://notehub.com/',
+    url: 'https://notehub.com/notes/action/create', 
+    type: 'website',
+    title: 'Створення нотатки | NoteHub',
+    description: 'Створюйте та редагуйте свої нотатки швидко та зручно.',
     images: [
       {
-        url: 'https://goit.global', // ВИПРАВЛЕНО: пряме посилання на .jpg файл зображення
+     
+        url: 'https://notehub.com', 
         width: 1200,
         height: 630,
-        alt: 'NoteHub — Платформа для керування нотатками',
+        alt: 'NoteHub - Створення нотатки',
       },
     ],
   },
 };
-
-
 
 interface RootLayoutProps {
   children: React.ReactNode;
