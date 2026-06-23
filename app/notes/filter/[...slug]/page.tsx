@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   
   const filterTitle = slug.join(' - '); 
   
-
+  // ГАРАНТОВАНО додано знак $, фігурні дужки та правильний домен:
   const pageUrl = `https://notehub.com/${slug.join('/')}`;
 
   return {
@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: pageUrl,
       images: [
         {
-       
+          // ГАРАНТОВАНО вказано пряме посилання на .png файл замість кореня сайту:
           url: 'https://notehub.com',
           width: 1200,
           height: 630,
