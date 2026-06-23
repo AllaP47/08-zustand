@@ -11,8 +11,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   
   const filterTitle = slug.join(' - '); 
-  // ВИПРАВЛЕНО: Додано похилу риску "/" після домену перед динамічним шляхом
-  const pageUrl = `https://notehub.com/${slug.join('/')}`;
+  const pageUrl = `https://notehub.com{slug.join('/')}`;
 
   return {
     title: `Фільтр: ${filterTitle} | NoteHub`,
@@ -23,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: pageUrl,
       images: [
         {
-          // ВИПРАВЛЕНО: Замінено 'https://goit.global' на пряме посилання на зображення фільтру
+       
           url: 'https://notehub.com',
           width: 1200,
           height: 630,
@@ -33,6 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
   };
 }
+
 
 export default async function FilterPage({ params }: Props) {
   const { slug } = await params;
