@@ -12,8 +12,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   
   const filterTitle = slug.join(' - '); 
   
-  // ЗНАК $ ДОДАНО: тепер це правильний шаблонний рядок
-  const pageUrl = `https://notehub.com{slug.join('/')}`;
+
+  const pageUrl = `https://notehub.com/${slug.join('/')}`;
 
   return {
     title: `Фільтр: ${filterTitle} | NoteHub`,
@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: pageUrl,
       images: [
         {
-          // Пряме посилання на файл зображення (.png)
+       
           url: 'https://notehub.com',
           width: 1200,
           height: 630,
@@ -35,13 +35,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-
-
 export default async function FilterPage({ params }: Props) {
   const { slug } = await params;
   const currentTag = slug[slug.length - 1];
 
   return <NotesClient tag={currentTag} />;
 }
-
-
