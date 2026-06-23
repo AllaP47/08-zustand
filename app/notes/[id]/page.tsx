@@ -10,8 +10,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
   try {
     const note = await fetchNoteById(id);
-    
- 
     const pageUrl = `https://notehub.com/notes/${id}`;
 
     return {
@@ -23,7 +21,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         url: pageUrl,
         images: [
           {
-            url: 'https://goit.global',
+            // ВИПРАВЛЕНО: Замінено 'https://goit.global' на пряме посилання на зображення нотатки
+            url: 'https://notehub.com',
             width: 1200,
             height: 630,
             alt: `Note: ${note.title}`,
@@ -32,7 +31,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     };
   } catch {
-
     return {
       title: 'Note not found | NoteHub',
       description: 'Запитувана нотатка не знайдена.',
@@ -42,7 +40,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         url: `https://notehub.com/notes/${id}`,
         images: [
           {
-            url: 'https://goit.global',
+            // ВИПРАВЛЕНО: Замінено 'https://goit.global' на пряме посилання на зображення помилки
+            url: 'https://notehub.com',
             width: 1200,
             height: 630,
             alt: 'Note not found',
@@ -54,9 +53,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function NotePage({ params }: Props) {
- 
   await params;
-  
-
   return <NoteDetailsClient />;
 }
