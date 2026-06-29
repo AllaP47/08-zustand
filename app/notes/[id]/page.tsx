@@ -21,8 +21,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         url: pageUrl,
         images: [
           {
-            // ВИПРАВЛЕНО: Замінено 'https://goit.global' на пряме посилання на зображення нотатки
-            url: 'https://notehub.com',
+           
+            url: 'https://goit.global',
             width: 1200,
             height: 630,
             alt: `Note: ${note.title}`,
@@ -40,8 +40,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         url: `https://notehub.com/notes/${id}`,
         images: [
           {
-            // ВИПРАВЛЕНО: Замінено 'https://goit.global' на пряме посилання на зображення помилки
-            url: 'https://notehub.com',
+          
+            url: 'https://goit.global',
             width: 1200,
             height: 630,
             alt: 'Note not found',

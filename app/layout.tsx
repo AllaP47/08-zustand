@@ -14,26 +14,24 @@ const roboto = Roboto({
 
 
 export const metadata: Metadata = {
-  title: 'Створення нотатки | NoteHub',
-  description: 'Створюйте та редагуйте свої нотатки швидко та зручно.',
+  title: 'NoteHub',
+  description: 'Зручний додаток для створення та керування вашими особистими нотатками.',
   openGraph: {
     url: 'https://notehub.com', 
     type: 'website',
-    title: 'Створення нотатки | NoteHub',
-    description: 'Створюйте та редагуйте свої нотатки швидко та зручно.',
+    title: 'NoteHub',
+    description: 'Зручний додаток для створення та керування вашими особистими нотатками.',
     images: [
       {
       
-        url: 'https://notehub.com', 
+        url: 'https://goit.global', 
         width: 1200,
         height: 630,
-        alt: 'NoteHub - Створення нотатки',
+        alt: 'NoteHub - Головна сторінка',
       },
     ],
   },
 };
-
-
 
 interface RootLayoutProps {
   children: React.ReactNode;

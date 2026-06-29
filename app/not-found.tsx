@@ -1,20 +1,21 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
-// ВИПРАВЛЕНО: Додано повний об'єкт метаданих з Open Graph для сторінки 404
 export const metadata: Metadata = {
   title: '404 - Page not found | NoteHub',
-  description: 'На жаль, запитувану сторінку не знайдено на сервері NoteHub.',
+  description: 'Запитувана сторінка не знайдена. Перевірте правильність введеної адреси.',
   openGraph: {
     title: '404 - Page not found | NoteHub',
-    description: 'На жаль, запитувану сторінку не знайдено на сервері NoteHub.',
-    url: 'https://notehub.com',
+    description: 'Запитувана сторінка не знайдена. Перевірте правильність введеної адреси.',
+    url: 'https://notehub.com', 
+    type: 'website',
     images: [
       {
+       
         url: 'https://goit.global',
         width: 1200,
         height: 630,
-        alt: 'Сторінку не знайдено | NoteHub',
+        alt: '404 - Page not found | NoteHub',
       },
     ],
   },
